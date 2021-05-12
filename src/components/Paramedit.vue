@@ -1,7 +1,7 @@
 <template>
   <form id="form">
     <table border="1">
-      <tr v-for="(sec, index) in task.params" :key="index">
+      <tr v-for="(sec, index) in task['params']" :key="index">
         <td>Name</td>
         <td><input v-model="sec.Name" /></td>
         <td>Path</td>
@@ -24,6 +24,7 @@ export default {
           { Name: "test2", ValueFrom: "test/path/2" },
         ],
       },
+      addForm: { Name: "", ValueFrom: "" },
     };
   },
   created() {},
@@ -34,11 +35,7 @@ export default {
     },
     addParam: function () {
       let self = this;
-      let addForm = {
-        Name: "",
-        ValueFrom: "",
-      };
-      self.task.params.push(addForm);
+      self.task.params.push(self.addForm);
     },
   },
 };
