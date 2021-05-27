@@ -24,7 +24,6 @@ export default {
           { Name: "test2", ValueFrom: "test/path/2" },
         ],
       },
-      addForm: { Name: "", ValueFrom: "" },
     };
   },
   created() {},
@@ -32,10 +31,12 @@ export default {
     deleteParam: function (id) {
       let self = this;
       self.task.params.splice(id, 1);
+      console.log(self.task.params);
     },
     addParam: function () {
       let self = this;
-      self.task.params.push(self.addForm);
+      let addForm = { Name: "", ValueFrom: "" };
+      self.task.params.push(addForm);
     },
   },
 };
